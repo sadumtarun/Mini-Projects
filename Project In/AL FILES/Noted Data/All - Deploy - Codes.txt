@@ -1,0 +1,945 @@
+streamlit run "D:\Institute\Excelr\Excelr Project\Project - Deploy\albkr.py"
+
+
+x ---------- 
+
+streamlit run "D:\Institute\Excelr\Excelr Project\Project - Deploy\albkr.py"
+
+
+streamlit run "D:\Institute\Excelr\Excelr Project\Project - Excelr - Bike - Main\Project - Deploy\albkr.py"
+
+streamlit run "D:\Institute\Excelr\Excelr Project\Project - Excelr - Bike - Main\Project - Deploy\albkr1.py"
+
+streamlit run "D:\Institute\Excelr\Excelr Project\Project - Excelr - Bike - Main\Project - Deploy\albkr2.py"
+
+streamlit run "D:\Institute\Excelr\Excelr Project\Project - Excelr - Bike - Main\Project - Deploy\apfnw.py"
+
+("D:/Institute/Excelr/Excelr Project/Project - Excelr - Bike - Main/Project - Deploy/best_rf_mdl.pkl", "rb")
+
+
+pip uninstall pandas
+
+
+loaded_model = pk.load(open("D:/Institute/Excelr/Excelr Project/Project - Deploy/gradient_boosting_model.pkl", "rb"))
+
+
+import os
+
+# Print the current working directory
+print("Current Working Directory:", os.getcwd())
+
+import numpy as np
+import pickle as pk
+import streamlit as st
+from streamlit.web import cli as sc
+file = open("gradient_boosting_model.pkl", "rb")
+loaded_model = pk.load(file)
+
+def main():
+    st.title("Gradient Boosting Model Prediction")
+    Season = st.selectbox("Seasons", options = ["Spring", "Summer", "Fall", "Winter"])
+    Year = st.selectbox("Years", options = [2011, 2012])
+    Month = st.number_input("Month - 1 to 12", min_value = 1, max_value = 12, step = 1)
+    Hour = st.number_input("Hour - 0 to 23", min_value = 0, max_value = 23, step = 1)
+    Holiday = st.selectbox("Holiday", options = [0, 1])
+    Weekday = st.number_input("Weekday - 0 to 6", min_value = 0, max_value = 6, step = 1)
+    WorkingDay = st.selectbox("Working Day", options = [0, 1])
+    WeatherCondition = st.number_input("WeatherCondition - 1 to 4", min_value = 1, max_value = 4, step = 1)
+    Tempature = st.number_input("Temperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    aTempature = st.number_input("aTemperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    Humidity = st.number_input("Humidity - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    WindSpeed = st.number_input("WindSpeed - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+
+    if st.button("Predict"):                                                      # Create a button for prediction
+        if None in [Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                     Tempature, aTempature, Humidity, WindSpeed]:                       # Check if all required fields are filled
+            st.error("Please fill in all fields before making a prediction.")
+        else:
+            sample_input = [[Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                             Tempature, aTempature, Humidity, WindSpeed]]
+            
+            prediction = loaded_model.predict(sample_input)       # Make prediction
+
+            st.write("Prediction of variable sample_input:", prediction[0])     # Display the prediction
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+----- NOW
+
+
+import os
+
+# Print the current working directory
+print("Current Working Directory:", os.getcwd())
+
+import numpy as np
+import pickle as pk
+import streamlit as st
+from streamlit.web import cli as sc
+file = open("D:/Institute/Excelr/Excelr Project/Project - Deploy/gradient_boosting_model.pkl", "rb")
+loaded_model = pk.load(file)
+
+def main():
+    st.title("Gradient Boosting Model Prediction")
+    Season = st.selectbox("Seasons", options = ["Spring", "Summer", "Fall", "Winter"])
+    Year = st.selectbox("Years", options = [2011, 2012])
+    Month = st.number_input("Month - 1 to 12", min_value = 1, max_value = 12, step = 1)
+    Hour = st.number_input("Hour - 0 to 23", min_value = 0, max_value = 23, step = 1)
+    Holiday = st.selectbox("Holiday", options = [0, 1])
+    Weekday = st.number_input("Weekday - 0 to 6", min_value = 0, max_value = 6, step = 1)
+    WorkingDay = st.selectbox("Working Day", options = [0, 1])
+    WeatherCondition = st.number_input("WeatherCondition - 1 to 4", min_value = 1, max_value = 4, step = 1)
+    Tempature = st.number_input("Temperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    aTempature = st.number_input("aTemperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    Humidity = st.number_input("Humidity - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    WindSpeed = st.number_input("WindSpeed - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+
+    if st.button("Predict"):                                                      # Create a button for prediction
+        if None in [Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                     Tempature, aTempature, Humidity, WindSpeed]:                       # Check if all required fields are filled
+            st.error("Please fill in all fields before making a prediction.")
+        else:
+            sample_input = [[Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                             Tempature, aTempature, Humidity, WindSpeed]]
+            
+            prediction = loaded_model.predict(sample_input)       # Make prediction
+
+            st.write("Prediction of variable sample_input:", prediction[0])     # Display the prediction
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import os
+import numpy as np
+import pickle as pk
+import streamlit as st
+
+# Print the current working directory
+print("Current Working Directory:", os.getcwd())
+
+# Load the model
+file = open("D:/Institute/Excelr/Excelr Project/Project - Deploy/gb_mdlp.pkl", "rb")
+loaded_model = pk.load(file)
+
+def main():
+    st.title("Gradient Boosting Model Prediction")
+    Season = st.selectbox("Seasons", options = ["Spring", "Summer", "Fall", "Winter"])
+    Year = st.selectbox("Years", options = [2011, 2012])
+    Month = st.number_input("Month - 1 to 12", min_value = 1, max_value = 12, step = 1)
+    Hour = st.number_input("Hour - 0 to 23", min_value = 0, max_value = 23, step = 1)
+    Holiday = st.selectbox("Holiday", options = [0, 1])
+    Weekday = st.number_input("Weekday - 0 to 6", min_value = 0, max_value = 6, step = 1)
+    WorkingDay = st.selectbox("Working Day", options=[0, 1])
+    WeatherCondition = st.number_input("WeatherCondition - 1 to 4", min_value = 1, max_value = 4, step = 1)
+    Temperature = st.number_input("Temperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    aTemperature = st.number_input("aTemperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    Humidity = st.number_input("Humidity - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    WindSpeed = st.number_input("WindSpeed - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+
+    if st.button("Predict"):  # Create a button for prediction
+        if None in [Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                    Temperature, aTemperature, Humidity, WindSpeed]:  # Check if all required fields are filled
+            st.error("Please fill in all fields before making a prediction.")
+        else:
+            sample_input = [[Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                             Temperature, aTemperature, Humidity, WindSpeed]]
+            
+            prediction = loaded_model.predict(sample_input)       # Make prediction
+            st.write("Prediction of variable sample_input:", prediction[0])  # Display the prediction
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+------- Mostly ended
+
+
+import os
+import numpy as np
+import pickle as pk
+import streamlit as st
+
+# Print the current working directory
+print("Current Working Directory:", os.getcwd())
+
+# Load the model
+file = open("D:/Institute/Excelr/Excelr Project/Project - Deploy/gb_mdlp.pkl", "rb")
+loaded_model = pk.load(file)
+
+def onfitpredt(Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+            Temperature, aTemperature, Humidity, WindSpeed):
+    
+    on_prediction = loaded_model.predict([[Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                Temperature, aTemperature, Humidity, WindSpeed]])
+    print(on_prediction)
+    return on_prediction
+
+def main():
+    
+    st.title("Gradient Boosting Model Prediction")
+    Season = st.selectbox("Seasons", options = ["Spring", "Summer", "Fall", "Winter"])
+    Year = st.selectbox("Years", options = [2011, 2012])
+    Month = st.number_input("Month - 1 to 12", min_value = 1, max_value = 12, step = 1)
+    Hour = st.number_input("Hour - 0 to 23", min_value = 0, max_value = 23, step = 1)
+    Holiday = st.selectbox("Holiday", options = [0, 1])
+    Weekday = st.number_input("Weekday - 0 to 6", min_value = 0, max_value = 6, step = 1)
+    WorkingDay = st.selectbox("Working Day", options=[0, 1])
+    WeatherCondition = st.number_input("WeatherCondition - 1 to 4", min_value = 1, max_value = 4, step = 1)
+    Temperature = st.number_input("Temperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    aTemperature = st.number_input("aTemperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    Humidity = st.number_input("Humidity - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    WindSpeed = st.number_input("WindSpeed - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    
+    solns = ""
+    if st.button("Predict"):  # Create a button for prediction
+        if None in [Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                    Temperature, aTemperature, Humidity, WindSpeed]:  # Check if all required fields are filled
+            st.error("Please fill in all fields before making a prediction.")
+            solns = onfitpredt(Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                        Temperature, aTemperature, Humidity, WindSpeed)
+            st.success("Prediction of variable sample input {} :".format(solns))  # Display the prediction
+        else:
+            sample_input = [[Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                             Temperature, aTemperature, Humidity, WindSpeed]]   
+            prediction = loaded_model.predict(sample_input)       # Make prediction
+            
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+-------- Mduri
+
+
+import os
+import numpy as np
+import pickle as pk
+import streamlit as st
+
+with open("D:/Institute/Excelr/Excelr Project/Project - Deploy/gb_mdlp.pkl", "rb") as file:
+    loaded_model = pk.load(file)
+
+def onfitpredt(Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                Temperature, aTemperature, Humidity, WindSpeed):
+    
+    Features = {"Year_2011" : [1 if yr == 2011 else 0],
+                "Year_2012" : [1 if yr == 2012 else 0],
+                "Month" + str(Month) + ".0" : [1],
+                "Hour" : [Hour],
+                "Holiday_No" : [1 if Holiday == 0 else 0],
+                "Holiday_Yes" : [1 if Holiday == 1 else 0],
+                "Weekday" : [weekday],
+                "WorkingDay No" : [1 if WorkingDay == 0 else 0],
+                "WorkingDay Yes" : [1 if WorkingDay == 1 else 0],
+                "WeatherCondition Clear" : [1 if WeatherCondition == 1 else 0],
+                "WeatherCondition Mist" : [1 if WeatherCondition == 2 else 0],
+                "WeatherCondition Heavy Rain" : [1 if WeatherCondition == 3 else 0],
+                "WeatherCondition Light Snow" : [1 if WeatherCondition == 4 else 0],
+                "Temperature" : [Temperature],
+                "aTemperature" : [aTemperature],
+                "Humidity" : [Humidity],
+                "WindSpeed" : [WindSpeed]}
+    return pd.DataFrame(Features)
+
+def all_features(users_work, model):
+    s_f = model.feature_names_in_
+    
+
+
+
+
+------ New
+
+
+import os
+import pandas as pd
+import numpy as np
+import pickle as pk
+import streamlit as st
+from sklearn.ensemble import RandomForestRegressor
+
+
+# Print the current working directory
+print("Current Working Directory:", os.getcwd())
+
+def load_your_training_features():
+    try:
+        df = pd.read_csv('bike_sharing_train.csv') 
+        features = ['Year', 'Month', 'Hour', 'Holiday', 'Weekday', 
+                    'WorkingDay', 'WeatherCondition', 'Temperature', 
+                    'aTemperature', 'Humidity', 'WindSpeed']
+        X_train = df[features]
+        return X_train
+    except FileNotFoundError:
+        print("Error: Training data file 'bike_sharing_train.csv' not found.")
+        return None
+
+def load_your_training_target():
+    try:
+        df = pd.read_csv('bike_sharing_train.csv') 
+        y_train = df['Count'] 
+        return y_train
+    except FileNotFoundError:
+        print("Error: Training data file 'bike_sharing_train.csv' not found.")
+        return None
+
+def onfitpredt(Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition, Temperature, aTemperature, Humidity, WindSpeed):
+    X_new = np.array([[Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition, Temperature, aTemperature, Humidity, WindSpeed]])
+    prediction = loaded_model.predict(X_new)[0] 
+    return prediction
+
+# Load the model (or create and fit if not found)
+try:
+    with open("D:/Institute/Excelr/Excelr Project/Project - Deploy/rdm_fst_mdl.pkl", "rb") as file:
+        loaded_model = pk.load(file)
+except FileNotFoundError:
+    # If the model file doesn't exist, create and fit a new model
+    loaded_model = RandomForestRegressor(n_estimators=100, random_state=42) 
+
+    X_train = load_your_training_features()
+    y_train = load_your_training_target()
+
+    loaded_model.fit(X_train, y_train) 
+
+    with open("D:/Institute/Excelr/Excelr Project/Project - Deploy/rdm_fst_mdl.pkl", "wb") as file:
+        pk.dump(loaded_model, file)
+
+def main():
+    st.title("Random Forest Regressor Model Prediction")
+    Season = st.selectbox("Seasons", options = ["Spring", "Summer", "Fall", "Winter"])
+    Year = st.selectbox("Years", options = [2011, 2012])
+    Month = st.number_input("Month - 1 to 12", min_value = 1, max_value = 12, step = 1)
+    Hour = st.number_input("Hour - 0 to 23", min_value = 0, max_value = 23, step = 1)
+    Holiday = st.selectbox("Holiday", options = [0, 1])
+    Weekday = st.number_input("Weekday - 0 to 6", min_value = 0, max_value = 6, step = 1)
+    WorkingDay = st.selectbox("Working Day", options=[0, 1])
+    WeatherCondition = st.number_input("WeatherCondition - 1 to 4", min_value = 1, max_value = 4, step = 1)
+    Temperature = st.number_input("Temperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    aTemperature = st.number_input("aTemperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    Humidity = st.number_input("Humidity - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    WindSpeed = st.number_input("WindSpeed - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+
+    solns = ""
+    if st.button("Predict"): 
+        try:
+            solns = onfitpredt(Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition, Temperature, aTemperature, Humidity, WindSpeed)
+            st.success("Prediction of variable sample input {} :".format(solns))
+        except ValueError as e:
+            st.error(e)
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import os
+import pandas as pd
+import numpy as np
+import pickle as pk
+import streamlit as st
+from sklearn.ensemble import RandomForestRegressor
+
+# Print the current working directory
+print("Current Working Directory:", os.getcwd())
+
+def load_your_training_features():
+    try:
+        df = pd.read_csv("D:\Institute\Excelr\Excelr Project\Project - Excelr - Bike - Main\Project - Files - Excelr - Staff/bike_rent.csv") 
+        features = ["Seasons", "Year", "Month", "Hour", "Holiday", "Weekday", 
+                    "WorkingDay", "WeatherCondition", "Temperature",
+                    "aTemperature", "Humidity", "WindSpeed"]
+        X_train = df[features]
+        return X_train
+    except FileNotFoundError:
+        print("Error: Training data file 'bike_sharing_train.csv' not found.")
+        return None
+
+def load_your_training_target():
+    try:
+        df = pd.read_csv("D:\Institute\Excelr\Excelr Project\Project - Excelr - Bike - Main\Project - Files - Excelr - Staff/bike_rent.csv")
+        y_train = df["Count"] 
+        return y_train
+    except FileNotFoundError:
+        print("Error: Training data file 'bike_sharing_train.csv' not found.")
+        return None
+
+def onfitpredt(Seasons, Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition, Temperature, aTemperature, Humidity, WindSpeed):
+    X_new = np.array([[Seasons, Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition, Temperature, aTemperature, Humidity, WindSpeed]])
+    prediction = loaded_model.predict(X_new)[0] 
+    return prediction
+
+# Load the model (or create and fit if not found)
+try:
+    with open("D:/Institute/Excelr/Excelr Project/Project - Deploy/rdm_fst_mdl.pkl", "rb") as file:
+        loaded_model = pk.load(file)
+except FileNotFoundError:
+    # If the model file doesn't exist, create and fit a new model
+    loaded_model = RandomForestRegressor(n_estimators=100, random_state=42) 
+
+    X_train = load_your_training_features()
+    y_train = load_your_training_target()
+
+    loaded_model.fit(X_train, y_train) 
+
+    with open("D:/Institute/Excelr/Excelr Project/Project - Deploy/rdm_fst_mdl.pkl", "wb") as file:
+        pk.dump(loaded_model, file)
+
+def main():
+    st.title("Random Forest Regressor Model Prediction")
+    Season = st.selectbox("Seasons", options = ["Spring", "Summer", "Fall", "Winter"])
+    Year = st.selectbox("Years", options = [2011, 2012])
+    Month = st.number_input("Month - 1 to 12", min_value = 1, max_value = 12, step = 1)
+    Hour = st.number_input("Hour - 0 to 23", min_value = 0, max_value = 23, step = 1)
+    Holiday = st.selectbox("Holiday", options = [0, 1])
+    Weekday = st.number_input("Weekday - 0 to 6", min_value = 0, max_value = 6, step = 1)
+    WorkingDay = st.selectbox("Working Day", options=[0, 1])
+    WeatherCondition = st.number_input("WeatherCondition - 1 to 4", min_value = 1, max_value = 4, step = 1)
+    Temperature = st.number_input("Temperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    aTemperature = st.number_input("aTemperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    Humidity = st.number_input("Humidity - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    WindSpeed = st.number_input("WindSpeed - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+
+    solns = ""
+    if st.button("Predict"): 
+        try:
+            solns = onfitpredt(Season, Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition, Temperature, aTemperature, Humidity, WindSpeed)
+            st.success("Prediction of variable sample input {} :".format(solns))
+        except ValueError as e:
+            st.error(e)
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+O ---
+
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split, RandomizedSearchCV, KFold
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import pickle as pk
+import numpy as np
+import pandas as pd
+
+# Assuming the DataFrame `df` is already defined
+# Replace with your data loading logic
+# Example: df = pd.read_csv('your_dataset.csv')
+
+# Create the target variable (if not already present)
+df['TotalCount'] = df['Casual'] + df['Registered']
+
+# Split dataset into features and target variable
+y = df["TotalCount"]
+x = df.iloc[:, 0:14]  # Assuming the first 14 columns are features
+
+# Train-test split
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state=42)
+
+# Define the base model
+rdm_fst_mdl = RandomForestRegressor(random_state=42)
+
+# Define hyperparameter grid
+rf_param_grid = {
+    "n_estimators": [50, 100, 150],
+    "max_depth": [None, 10, 20],
+    "min_samples_split": [2, 5, 10],
+    "min_samples_leaf": [1, 2, 4]
+}
+
+# Define cross-validation strategy
+crs_vdn = KFold(n_splits=5, shuffle=True, random_state=42)
+
+# Perform RandomizedSearchCV
+rf_random_search = RandomizedSearchCV(
+    estimator=rdm_fst_mdl,
+    param_distributions=rf_param_grid,
+    n_iter=10,
+    cv=crs_vdn,
+    scoring="neg_mean_absolute_error",
+    random_state=42
+)
+
+# Fit the RandomizedSearchCV to find the best parameters
+rf_random_search.fit(x_train, y_train)
+
+# Extract the best parameters and refit the `rdm_fst_mdl` with them
+rdm_fst_mdl.set_params(**rf_random_search.best_params_)
+rdm_fst_mdl.fit(x_train, y_train)
+
+# Evaluate the model
+def evaluate_model(y_true, y_pred):
+    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
+    mae = mean_absolute_error(y_true, y_pred)
+    r2 = r2_score(y_true, y_pred)
+    print(f"RMSE: {rmse:.2f}")
+    print(f"MAE: {mae:.2f}")
+    print(f"R-Squared: {r2:.2f}")
+
+# Predictions and evaluation
+rf_predictions = rdm_fst_mdl.predict(x_test)
+print("\nRandom Forest:")
+evaluate_model(y_test, rf_predictions)
+
+# Save the fitted `rdm_fst_mdl` model
+model_file = "rdm_fst_mdl.pkl"
+with open(model_file, "wb") as file:
+    pk.dump(rdm_fst_mdl, file)
+
+print(f"Model has been successfully saved as {model_file}")
+
+
+
+error code of path
+
+
+import os
+import numpy as np
+import pickle as pk
+import streamlit as st
+
+# Print the current working directory
+print("Current Working Directory:", os.getcwd())
+
+# Load the model
+
+try:
+    with open("D:/Institute/Excelr/Excelr Project/Project - Excelr - Bike - Main/Project - Deploy/best_rf_mdl.pkl", "rb") as file:
+        loaded_model = pk.load(file)
+except FileNotFoundError:
+    st.error("Error: The model file 'rdm_fst_mdl.pkl' could not be found.")
+except Exception as e: 
+    st.error(f"An error occurred while loading the model: {e}")
+    exit(1)
+
+def onfitpredt(Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                 Temperature, aTemperature, Humidity, WindSpeed):
+    """Makes predictions using the loaded model."""
+    if None in [Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                Temperature, aTemperature, Humidity, WindSpeed]:
+        st.error("Please fill in all fields before making a prediction.")
+
+def main():
+    
+    st.title("Gradient Boosting Model Prediction")
+    Season = st.selectbox("Seasons", options = ["Spring", "Summer", "Fall", "Winter"])
+    Year = st.selectbox("Years", options = [2011, 2012])
+    Month = st.number_input("Month - 1 to 12", min_value = 1, max_value = 12, step = 1)
+    Hour = st.number_input("Hour - 0 to 23", min_value = 0, max_value = 23, step = 1)
+    Holiday = st.selectbox("Holiday", options = [0, 1])
+    Weekday = st.number_input("Weekday - 0 to 6", min_value = 0, max_value = 6, step = 1)
+    WorkingDay = st.selectbox("Working Day", options=[0, 1])
+    WeatherCondition = st.number_input("WeatherCondition - 1 to 4", min_value = 1, max_value = 4, step = 1)
+    Temperature = st.number_input("Temperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    aTemperature = st.number_input("aTemperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    Humidity = st.number_input("Humidity - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    WindSpeed = st.number_input("WindSpeed - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    
+    solns = ""
+    if st.button("Predict"):  # Create a button for prediction
+        if None in [Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                    Temperature, aTemperature, Humidity, WindSpeed]:  # Check if all required fields are filled
+            st.error("Please fill in all fields before making a prediction.")
+            solns = onfitpredt(Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                        Temperature, aTemperature, Humidity, WindSpeed)
+            st.success("Prediction of variable sample input {} :".format(solns))  # Display the prediction
+        else:
+            sample_input = [[Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                             Temperature, aTemperature, Humidity, WindSpeed]]   
+            prediction = loaded_model.predict(sample_input)       # Make prediction
+            
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+"D:/Institute/Excelr/Excelr Project/Project - Excelr - Bike - Main/Project - Deploy/best_rf_mdl (1).pkl"
+
+
+
+
+
+
+
+
+y = df["TotalCount"]
+x = df.iloc[ : , 0:14]
+
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size = 0.8, random_state = 42)
+
+
+rdm_fst_mdl = RandomForestRegressor(n_estimators = 100, random_state = 42)
+rdm_fst_mdl.fit(x_train, y_train)
+
+rf_predict= rdm_fst_mdl.predict(x_test)
+
+def evaluate_model(y_true, y_pred):
+    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
+    mae = mean_absolute_error(y_true, y_pred)
+    r2 = r2_score(y_true, y_pred)
+    print(f"RMSE: {rmse:.2f}")
+    print(f"MAE: {mae:.2f}")
+    print(f"R-Squared: {r2:.2f}")
+
+
+print("\nRandom Forest:")
+evaluate_model(y_test, rf_predict)
+
+rf_param_grid = {"n_estimators" : [50, 100, 150],
+                 "max_depth" : [None, 10, 20],
+                 "min_samples_split" : [2, 5, 10],
+                 "min_samples_leaf": [1, 2, 4]
+}
+
+
+rdm_fst_mdl = RandomForestRegressor(random_state = 42)
+
+crs_vdn = KFold(n_splits = 5,shuffle = True,random_state = 42)
+
+rf_random_search = RandomizedSearchCV(estimator = rdm_fst_mdl,
+                                      param_distributions = rf_param_grid,
+                                      n_iter = 10,
+                                      cv = crs_vdn,
+                                      scoring = "neg_mean_absolute_error")
+
+rf_random_search.fit(x_train,y_train)
+
+
+print("\nRandom Forest Best Parameters:", rf_random_search.best_params_)
+print("Random Forest Best RMSE:", np.sqrt(-rf_random_search.best_score_))
+
+best_rf_mdl = rf_random_search.best_estimator_
+
+
+rf_best_predictions = best_rf_mdl.predict(x_test)
+
+
+print("\nTuned Random Forest:")
+evaluate_model(y_test, rf_best_predictions)
+
+
+dox = "best_rf_mdl.pkl"
+
+pk.dump(rdm_fst_mdl, open(dox, "wb"))
+loaded_model = pk.load(open("best_rf_mdl.pkl", "rb"))
+
+print("Model has been saved successfully as best_rf_mdl.pkl")
+
+
+
+import os
+import numpy as np
+import pickle as pk
+import streamlit as st
+
+# Print the current working directory
+print("Current Working Directory:", os.getcwd())
+
+# Load the model
+file = open("C:/Users/intel/Downloads/best_rf_mdl.pkl", "rb")
+loaded_model = pk.load(file)
+
+def onfitpredt(Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+            Temperature, aTemperature, Humidity, WindSpeed):
+    
+    on_prediction = loaded_model.predict([[Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                Temperature, aTemperature, Humidity, WindSpeed]])
+    return on_prediction
+
+def main():
+    
+    st.title("Gradient Boosting Model Prediction")
+    Season = st.selectbox("Seasons", options = ["Spring", "Summer", "Fall", "Winter"])
+    Year = st.selectbox("Years", options = [2011, 2012])
+    Month = st.number_input("Month - 1 to 12", min_value = 1, max_value = 12, step = 1)
+    Hour = st.number_input("Hour - 0 to 23", min_value = 0, max_value = 23, step = 1)
+    Holiday = st.selectbox("Holiday", options = [0, 1])
+    Weekday = st.number_input("Weekday - 0 to 6", min_value = 0, max_value = 6, step = 1)
+    WorkingDay = st.selectbox("Working Day", options=[0, 1])
+    WeatherCondition = st.number_input("WeatherCondition - 1 to 4", min_value = 1, max_value = 4, step = 1)
+    Temperature = st.number_input("Temperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    aTemperature = st.number_input("aTemperature - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    Humidity = st.number_input("Humidity - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    WindSpeed = st.number_input("WindSpeed - 0 to 1", min_value = 0.0, max_value = 1.0, step = 0.01)
+    
+    solns = ""
+    if st.button("Predict"):  # Create a button for prediction
+        if None in [Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                    Temperature, aTemperature, Humidity, WindSpeed]:  # Check if all required fields are filled
+            st.error("Please fill in all fields before making a prediction.")
+            solns = onfitpredt(Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                        Temperature, aTemperature, Humidity, WindSpeed)
+            st.success("Prediction of variable sample input {} :".format(solns))  # Display the prediction
+        else:
+            sample_input = [[Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+                             Temperature, aTemperature, Humidity, WindSpeed]]   
+            prediction = loaded_model.predict(sample_input)       # Make prediction
+            
+
+if __name__ == "__main__":
+    main()
+
+
+
+sklearn.exceptions.NotFittedError: This RandomForestRegressor instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+Traceback:
+File "D:\Institute\Excelr\Excelr Project\Project - Excelr - Bike - Main\Project - Deploy\albkr2.py", line 52, in <module>
+    main()
+File "D:\Institute\Excelr\Excelr Project\Project - Excelr - Bike - Main\Project - Deploy\albkr2.py", line 48, in main
+    prediction = loaded_model.predict(sample_input)       # Make prediction
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "C:\Users\intel\.conda\envs\ninsalln\Lib\site-packages\sklearn\ensemble\_forest.py", line 1064, in predict
+    check_is_fitted(self)
+File "C:\Users\intel\.conda\envs\ninsalln\Lib\site-packages\sklearn\utils\validation.py", line 1757, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import os
+import numpy as np
+import pandas as pd
+import pickle as pk
+import streamlit as st
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split, KFold, RandomizedSearchCV
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+# Load the dataset (replace 'your_data.csv' with the actual file if necessary)
+# df = pd.read_csv("your_data.csv")
+# For demonstration, assume df is already loaded
+
+# Splitting the data into features (X) and target (y)
+y = df["TotalCount"]
+x = df.iloc[:, 0:14]  # Use all 14 features
+
+# Split into training and testing sets
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state=42)
+
+# Train the initial Random Forest model
+rdm_fst_mdl = RandomForestRegressor(n_estimators=100, random_state=42)
+rdm_fst_mdl.fit(x_train, y_train)
+
+# Predictions and evaluation
+def evaluate_model(y_true, y_pred):
+    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
+    mae = mean_absolute_error(y_true, y_pred)
+    r2 = r2_score(y_true, y_pred)
+    print(f"RMSE: {rmse:.2f}")
+    print(f"MAE: {mae:.2f}")
+    print(f"R-Squared: {r2:.2f}")
+
+print("\nRandom Forest:")
+rf_predict = rdm_fst_mdl.predict(x_test)
+evaluate_model(y_test, rf_predict)
+
+# Hyperparameter tuning
+rf_param_grid = {
+    "n_estimators": [50, 100, 150],
+    "max_depth": [None, 10, 20],
+    "min_samples_split": [2, 5, 10],
+    "min_samples_leaf": [1, 2, 4]
+}
+
+crs_vdn = KFold(n_splits=5, shuffle=True, random_state=42)
+rf_random_search = RandomizedSearchCV(
+    estimator=RandomForestRegressor(random_state=42),
+    param_distributions=rf_param_grid,
+    n_iter=10,
+    cv=crs_vdn,
+    scoring="neg_mean_absolute_error"
+)
+
+rf_random_search.fit(x_train, y_train)
+print("\nRandom Forest Best Parameters:", rf_random_search.best_params_)
+print("Random Forest Best RMSE:", np.sqrt(-rf_random_search.best_score_))
+
+best_rf_mdl = rf_random_search.best_estimator_
+rf_best_predictions = best_rf_mdl.predict(x_test)
+
+print("\nTuned Random Forest:")
+evaluate_model(y_test, rf_best_predictions)
+
+# Save the best model
+dox = "best_rf_mdl.pkl"
+with open(dox, "wb") as file:
+    pk.dump(best_rf_mdl, file)
+print("Model has been saved successfully as best_rf_mdl.pkl")
+
+# Streamlit app
+def onfitpredt(input_features):
+    return best_rf_mdl.predict([input_features])
+
+def main():
+    st.title("Random Forest Model Prediction")
+
+    # Input fields for all 14 features
+    Year = st.number_input("Year (e.g., 2011 or 2012)", min_value=2011, max_value=2012, step=1)
+    Month = st.number_input("Month (1-12)", min_value=1, max_value=12, step=1)
+    Hour = st.number_input("Hour (0-23)", min_value=0, max_value=23, step=1)
+    Holiday = st.selectbox("Holiday (0: No, 1: Yes)", options=[0, 1])
+    Weekday = st.number_input("Weekday (0-6, Mon-Sun)", min_value=0, max_value=6, step=1)
+    WorkingDay = st.selectbox("Working Day (0: No, 1: Yes)", options=[0, 1])
+    WeatherCondition = st.number_input("Weather Condition (1-4)", min_value=1, max_value=4, step=1)
+    Temperature = st.number_input("Temperature (normalized, 0-1)", min_value=0.0, max_value=1.0, step=0.01)
+    aTemperature = st.number_input("Adjusted Temperature (normalized, 0-1)", min_value=0.0, max_value=1.0, step=0.01)
+    Humidity = st.number_input("Humidity (normalized, 0-1)", min_value=0.0, max_value=1.0, step=0.01)
+    WindSpeed = st.number_input("WindSpeed (normalized, 0-1)", min_value=0.0, max_value=1.0, step=0.01)
+    Feature1 = st.number_input("Feature1", min_value=0.0, max_value=1.0, step=0.01)
+    Feature2 = st.number_input("Feature2", min_value=0.0, max_value=1.0, step=0.01)
+    Feature3 = st.number_input("Feature3", min_value=0.0, max_value=1.0, step=0.01)
+
+    # Collect inputs into a feature list
+    input_features = [
+        Year, Month, Hour, Holiday, Weekday, WorkingDay, WeatherCondition,
+        Temperature, aTemperature, Humidity, WindSpeed, Feature1, Feature2, Feature3
+    ]
+
+    if st.button("Predict"):
+        prediction = onfitpredt(input_features)
+        st.success(f"Predicted Total Count: {prediction[0]:.2f}")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
